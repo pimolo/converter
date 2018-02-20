@@ -11,12 +11,12 @@
 
 namespace Translation\Converter\Loader;
 
+use Symfony\Bundle\FrameworkBundle\Translation\TranslationLoader as SymfonyTranslationLoader;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Translation\Loader\LoaderInterface;
 use Symfony\Component\Translation\MessageCatalogue;
-use Translation\SymfonyStorage\TranslationLoader as TranslationLoaderInterface;
 
-class TranslationLoader implements TranslationLoaderInterface
+class TranslationLoader extends SymfonyTranslationLoader
 {
     /**
      * @var LoaderInterface
@@ -43,6 +43,8 @@ class TranslationLoader implements TranslationLoaderInterface
      *
      * @param string           $directory the directory to look into
      * @param MessageCatalogue $catalogue the catalogue
+     *
+     * @deprecated Use read instead.
      */
     public function loadMessages($directory, MessageCatalogue $catalogue)
     {
